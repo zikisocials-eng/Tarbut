@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לוח הופעות ואירועים - קריית אונו</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; }
+        p.subtitle { margin: 10px 0 0; opacity: 0.9; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            margin: 0 0 15px 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .meta-info {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .meta-info span.icon {
+            font-size: 1.1rem;
+        }
+
+        .btn-tickets {
+            margin-top: auto;
+            display: block;
+            text-align: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-tickets:hover {
+            background-color: #5b4bc4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>לוח הופעות ואירועים</h1>
+        <p class="subtitle">האירועים החמים בקריית התרבות אונו</p>
+    </header>
+
+    <div class="grid">
+        <!-- כרטיס אירוע 1 -->
+        <div class="card">
+            <div class="card-body">
+                <h3 class="event-title">מוצ"ש בורוד</h3>
+                <div class="meta-info"><span class="icon">📅</span><strong>תאריך:</strong> 17.10.2026</div>
+                <div class="meta-info"><span class="icon">⏰</span><strong>שעה:</strong> 19:30</div>
+                <div class="meta-info"><span class="icon">📍</span><strong>מיקום:</strong> אולם 360</div>
+                <a href="https://www.tarbutono.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%95%D7%AA-%D7%95%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/" target="_blank" class="btn-tickets">לרכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- כרטיס אירוע 2 -->
+        <div class="card">
+            <div class="card-body">
+                <h3 class="event-title">מופע הסטנדאפ של רועי לוי</h3>
+                <div class="meta-info"><span class="icon">📅</span><strong>תאריך:</strong> 17.10.2026</div>
+                <div class="meta-info"><span class="icon">⏰</span><strong>שעה:</strong> 21:00</div>
+                <div class="meta-info"><span class="icon">📍</span><strong>מיקום:</strong> אולם 140 ע"ש גאיה חליפה</div>
+                <a href="https://www.tarbutono.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%95%D7%AA-%D7%95%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/" target="_blank" class="btn-tickets">לרכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- כרטיס אירוע 3 -->
+        <div class="card">
+            <div class="card-body">
+                <h3 class="event-title">אוקטוברפסט בקריית אונו</h3>
+                <div class="meta-info"><span class="icon">📅</span><strong>תאריך:</strong> 22.10.2026</div>
+                <div class="meta-info"><span class="icon">⏰</span><strong>שעה:</strong> 18:00</div>
+                <div class="meta-info"><span class="icon">📍</span><strong>מיקום:</strong> חצר אונו</div>
+                <a href="https://www.tarbutono.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%95%D7%AA-%D7%95%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/" target="_blank" class="btn-tickets">לרכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- כרטיס אירוע 4 -->
+        <div class="card">
+            <div class="card-body">
+                <h3 class="event-title">קסם הקרקס</h3>
+                <div class="meta-info"><span class="icon">📅</span><strong>תאריך:</strong> 24.10.2026</div>
+                <div class="meta-info"><span class="icon">⏰</span><strong>שעה:</strong> 10:30</div>
+                <div class="meta-info"><span class="icon">📍</span><strong>מיקום:</strong> אולם 360</div>
+                <a href="https://www.tarbutono.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%95%D7%AA-%D7%95%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/" target="_blank" class="btn-tickets">לרכישת כרטיסים</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
