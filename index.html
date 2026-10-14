@@ -1,78 +1,48 @@
-html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>לוח הופעות ואירועים תלת-ממדי - קריית התרבות אונו</title>
-    <!-- Tailwind CSS -->
+    <title>לוח הופעות ואירועים - קריית התרבות אונו</title>
+    <!-- Tailwind CSS לעיצוב מודרני -->
     <script src="https://jsdelivr.net"></script>
     <style>
         @import url('https://googleapis.com');
         body { font-family: 'Heebo', sans-serif; }
-        
-        /* אפקטי זכוכית ועומק מותאמים אישית */
-        .glass-card {
-            background: rgba(30, 41, 59, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px border;
-            border-color: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .glass-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.2);
-        }
-        .translate-3d {
-            transform: translateZ(30px);
-        }
     </style>
 </head>
-<body class="bg-[#0b0f19] text-slate-100 min-h-screen antialiased flex flex-col relative overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col">
 
-    <!-- כדורי רקע זוהרים לאפקט תלת ממד עמוק מאחורי הזכוכית -->
-    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-600/10 blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-purple-600/10 blur-[120px] pointer-events-none"></div>
-    <div class="absolute top-[40%] left-[40%] w-[30vw] h-[30vw] rounded-full bg-pink-600/5 blur-[100px] pointer-events-none"></div>
-
-    <!-- סרגל עליון עתידני -->
-    <header class="relative overflow-hidden pt-16 pb-8 text-center z-10">
-        <div class="max-w-4xl mx-auto px-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 mb-5 backdrop-blur-md">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                ממשק תלת-ממדי אינטראקטיבי
+    <!-- סרגל עליון מעוצב -->
+    <header class="relative overflow-hidden bg-gradient-to-b from-indigo-950 via-slate-900 to-transparent pt-12 pb-6 text-center border-b border-slate-800">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.15),transparent_50%)]"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4 backdrop-blur-md">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                עדכון אוטומטי חי בזמן אמת
             </span>
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-indigo-300 drop-shadow-sm">
-                אירועים והופעות באונו
-            </h1>
-            <p class="text-slate-400 mt-4 text-base md:text-xl max-w-xl mx-auto font-light leading-relaxed">
-                חוויית תרבות עתידנית בזמן אמת מתוך לוח האירועים הרשמי.
-            </p>
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white">לוח ההופעות והאירועים</h1>
+            <p class="text-slate-400 mt-3 text-base md:text-lg">קריית התרבות אונו בעיצוב מודרני ונקי</p>
         </div>
     </header>
 
     <!-- אזור התוכן הראשי -->
-    <main class="flex-grow max-w-7xl mx-auto px-6 py-8 w-full z-10">
-        <!-- הודעת טעינה מונפשת בתלת ממד -->
-        <div id="loader" class="flex flex-col items-center justify-center py-32">
-            <div class="relative w-20 h-20">
-                <div class="absolute inset-0 rounded-full border-4 border-slate-800/80"></div>
-                <div class="absolute inset-0 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full">
+        <!-- הודעת טעינה מונפשת -->
+        <div id="loader" class="flex flex-col items-center justify-center py-24">
+            <div class="relative w-16 h-16">
+                <div class="absolute inset-0 rounded-full border-4 border-slate-800"></div>
+                <div class="absolute inset-0 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin"></div>
             </div>
-            <p class="text-indigo-300/80 text-lg mt-8 font-medium tracking-wide animate-pulse">מפיק כרטיסיות תלת-ממד...</p>
+            <p class="text-slate-400 text-lg mt-6 font-medium animate-pulse">שואב את ההופעות החמות ביותר...</p>
         </div>
 
         <!-- גריד כרטיסיות ההופעות -->
-        <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-2"></div>
+        <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </main>
 
-    <!-- שוליים תחתונים -->
-    <footer class="text-center py-8 border-t border-slate-900/60 text-xs text-slate-500 bg-slate-950/20 backdrop-blur-sm z-10">
-        <p>הנתונים מתעדכנים ישירות מקריית התרבות אונו. פיתוח ממשק עתידני 2026.</p>
+    <footer class="text-center py-8 border-t border-slate-800 text-xs text-slate-500 bg-slate-950/50">
+        <p>הנתונים נמשכים אוטומטית מתוך אתר קריית התרבות אונו. כל הזכויות שמורות ליוצרים.</p>
     </footer>
 
     <script>
@@ -86,32 +56,28 @@ html
 
         function getEventImage(title) {
             const t = title.toLowerCase();
-            if (t.includes('מופע') || t.includes('סטנדאפ') || t.includes('רועי לוי') || t.includes('צחוק')) return fallbackImages.standup;
-            if (t.includes('מוזיק') || t.includes('שירה') || t.includes('דני') || t.includes('ניצני') || t.includes('בלוז')) return fallbackImages.music;
-            if (t.includes('הצגה') || t.includes('מחזה') || t.includes('תיאטרון') || t.includes('מקליד')) return fallbackImages.theater;
+            if (t.includes('מופע') || t.includes('סטנדאפ') || t.includes('רועי לוי')) return fallbackImages.standup;
+            if (t.includes('מוזיק') || t.includes('שירה') || t.includes('דני') || t.includes('ניצני')) return fallbackImages.music;
+            if (t.includes('הצגה') || t.includes('מחזה') || t.includes('מקליד')) return fallbackImages.theater;
             if (t.includes('ילדים') || t.includes('דוליטל') || t.includes('קרקס') || t.includes('קוסם')) return fallbackImages.kids;
             return fallbackImages.default;
         }
 
         async function fetchEvents() {
-            const targetUrl = 'https://tarbutono.co.il';
+            const targetUrl = 'https://www.tarbutono.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%95%D7%AA-%D7%95%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/';
+            // שימוש בפרוקסי חלופי מנוהל לעקיפת חסימות קשיחות
+            const proxyUrl = `https://allorigins.win{encodeURIComponent(targetUrl)}`;
 
             try {
-                let response = await fetch(`https://allorigins.win{encodeURIComponent(targetUrl)}`);
-                let htmlText = '';
+                const response = await fetch(proxyUrl);
+                if (!response.ok) throw new Error('Failed to load');
                 
-                if (response.ok) {
-                    const data = await response.json();
-                    htmlText = data.contents;
-                } else {
-                    const fallbackResponse = await fetch(`https://freeboard.io{targetUrl}`);
-                    htmlText = await fallbackResponse.text();
-                }
-                
+                const data = await response.json();
                 const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlText, 'text/html');
+                const doc = parser.parseFromString(data.contents, 'text/html');
                 
-                const eventElements = doc.querySelectorAll('.em-card, .elementor-post, article, [class*="post-"]'); 
+                // התאמה למבנה הקארדים הייחודי של רכיב הלופ באתר המקורי (.em-card או אלמנטור ליסט)
+                const eventElements = doc.querySelectorAll('.em-card, .elementor-post, article'); 
                 const container = document.getElementById('events-container');
                 document.getElementById('loader').classList.add('hidden');
 
@@ -121,71 +87,64 @@ html
                 }
 
                 eventElements.forEach(el => {
-                    const title = el.querySelector('h3, h2, .em-card-title, .title')?.innerText.trim() || 'מופע תרבות מיוחד';
-                    const dateText = el.querySelector('.em-card-date, .date, time, [class*="meta"]')?.innerText.trim() || 'פרטים מלאים באתר';
+                    const title = el.querySelector('.em-card-title, h3, h2, .title')?.innerText.trim() || 'מופע תרבות';
+                    const dateText = el.querySelector('.em-card-date, .date, time')?.innerText.trim() || 'בדקו פרטים באתר';
                     const link = el.querySelector('a')?.href || targetUrl;
                     const imgUrl = getEventImage(title);
                     
                     const card = document.createElement('div');
-                    card.className = "glass-card rounded-2xl overflow-hidden flex flex-col justify-between p-4 cursor-pointer";
+                    card.className = "group relative bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700/60 shadow-xl hover:border-indigo-500/50 hover:shadow-indigo-500/5 transition-all duration-300 flex flex-col justify-between backdrop-blur-sm";
                     
                     card.innerHTML = `
-                        <div class="translate-3d duration-300">
-                            <!-- תמונה שקועה עם צל פנימי -->
-                            <div class="relative h-48 w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent z-10"></div>
-                                <img src="${imgUrl}" alt="${title}" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
-                                <span class="absolute top-3 right-3 z-20 inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-950/80 text-cyan-400 border border-slate-800 backdrop-blur-md shadow-lg">
+                        <div>
+                            <div class="relative h-44 w-full overflow-hidden bg-slate-900">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
+                                <img src="${imgUrl}" alt="${title}" class="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-4 right-4 z-20 inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-900/80 text-indigo-300 border border-slate-700 backdrop-blur-sm">
                                     📍 קריית התרבות
                                 </span>
                             </div>
-                            
-                            <!-- תוכן טקסט בולט החוצה בתלת ממד -->
-                            <div class="py-5 px-2">
-                                <h3 class="text-xl font-bold text-white leading-snug tracking-wide line-clamp-2 hover:text-indigo-400 transition-colors duration-200">
-                                    ${title}
-                                </h3>
-                                <div class="mt-4 pt-4 border-t border-slate-700/30 flex items-center gap-2.5 text-sm text-slate-300">
-                                    <span class="text-xl filter drop-shadow-[0_0_5px_rgba(34,211,238,0.4)]">📅</span>
-                                    <span><strong>מועד:</strong> ${dateText}</span>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white leading-snug group-hover:text-indigo-400 transition-colors duration-200 line-clamp-2">${title}</h3>
+                                <div class="mt-4 pt-4 border-t border-slate-700/50 space-y-2.5 text-sm text-slate-300">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-lg">📅</span>
+                                        <span><strong>מועד האירוע:</strong> ${dateText}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- כפתור מעוצב זוהר -->
-                        <div class="p-2 pt-0 translate-3d">
-                            <a href="${link}" target="_blank" class="flex items-center justify-center gap-2 w-full text-center bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 shadow-[0_4px_20px_rgba(99,102,241,0.2)] hover:shadow-[0_4px_25px_rgba(168,85,247,0.4)] transform hover:-translate-y-0.5">
-                                שריון מקומות וכרטיסים ←
+                        <div class="p-6 pt-0">
+                            <a href="${link}" target="_blank" class="flex items-center justify-center gap-2 w-full text-center bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-lg shadow-indigo-600/10">
+                                פרטים וכרטיסים ←
                             </a>
                         </div>
                     `;
+                    container.appendChild(card);
+                });
 
-                    // הוספת פונקציונליות תזוזה תלת-ממדית (3D Tilt Effect) לכל כרטיס
-                    card.addEventListener('mousemove', (e) => {
-חשוב להשתמש בקוד בזהירות.
-const rect = card.getBoundingClientRect();
-const x = e.clientX - rect.left;
-const y = e.clientY - rect.top;
-const xc = rect.width / 2;
-const yc = rect.height / 2;
-const angleX = (yc - y) / 15;
-const angleY = (x - xc) / 15;
-card.style.transform = rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-5px);
-});
-card.addEventListener('mouseleave', () => {
-card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
-});
-container.appendChild(card);
-});
-} catch (error) {
-console.error(error);
-showEmbedFallback();
-}
-}
-function showEmbedFallback() {
-document.getElementById('loader').classList.add('hidden');
-const container = document.getElementById('events-container');
-container.className = "w-full col-span-full max-w-5xl mx-auto";
-container.innerHTML = <div class="glass-card p-4 rounded-2xl flex flex-col h-[80vh]"> <iframe src="https://tarbutono.co.il" class="w-full flex-grow rounded-xl bg-white border-none" style="color-scheme: light;"></iframe> </div>;
-}
-window.addEventListener('DOMContentLoaded', fetchEvents);
+            } catch (error) {
+                console.error(error);
+                showEmbedFallback();
+            }
+        }
+
+        function showEmbedFallback() {
+            document.getElementById('loader').classList.add('hidden');
+            const container = document.getElementById('events-container');
+            container.className = "w-full col-span-full max-w-5xl mx-auto";
+            container.innerHTML = `
+                <div class="bg-slate-800/40 border border-slate-700 p-4 rounded-2xl shadow-2xl flex flex-col h-[75vh]">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-700/60 mb-4 px-2">
+                        <span class="text-sm font-medium text-slate-300">הצגת לוח מופעים רשמי קבוע (מצב מאובטח)</span>
+                        <a href="https://www.tarbutono.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%95%D7%AA-%D7%95%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/" target="_blank" class="text-xs bg-indigo-600 text-white px-3 py-1.5 rounded-lg hover:bg-indigo-500 transition-colors">אתר המקור ↗</a>
+                    </div>
+                    <iframe src="https://www.tarbutono.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%95%D7%AA-%D7%95%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D/" class="w-full flex-grow rounded-xl bg-white border-none"></iframe>
+                </div>
+            `;
+        }
+
+        window.addEventListener('DOMContentLoaded', fetchEvents);
+    </script>
+</body>
+</html>
